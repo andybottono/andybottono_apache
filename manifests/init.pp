@@ -1,0 +1,13 @@
+class apache (
+
+  $package_name = $::apache::params::package_name,
+  $service_name = $::apcahe::params::service_name,
+  $webpage_text = $::apcahe::params::webpage_text,
+  ) inherits apache::params {
+
+
+  class { '::apache::install':} ->
+  class { '::apache::config': } ~>
+  class { '::apache::service': } ->
+  Class['::apache']
+      }
